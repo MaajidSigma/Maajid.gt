@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nama Bulan Kalender Islam</title>
+</head>
+<body>
+
+    <h2>Masukkan Angka Bulan (1-12)</h2>
+    <input type="number" id="bulanAngka" placeholder="Masukkan angka bulan (1-12)">
+    <button onclick="tampilkanBulan()">Tampilkan Nama Bulan</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function tampilkanBulan() {
+            // Menyusun array nama bulan dalam kalender Islam
+            const bulanIslam = [
+                "Muharram", "Safar", "Rabi'ul Awal", "Rabi'ul Akhir", 
+                "Jumadil Awal", "Jumadil Akhir", "Rajab", "Sya'ban", 
+                "Ramadhan", "Syawal", "Dzulqa'dah", "Dzulhijjah"
+            ];
+
+            // Mengambil input angka bulan dari pengguna
+            let bulanAngka = parseInt(document.getElementById("bulanAngka").value);
+
+            // Validasi input
+            if (isNaN(bulanAngka) || bulanAngka < 1 || bulanAngka > 12) {
+                document.getElementById("hasil").innerText = "Silakan masukkan angka bulan yang valid (1-12).";
+                return;
+            }
+
+            // Menampilkan nama bulan yang sesuai
+            let bulan = bulanIslam[bulanAngka - 1]; // Array dimulai dari indeks 0, jadi bulanAngka - 1
+            document.getElementById("hasil").innerText = "Nama bulan: " + bulan;
+        }
+    </script>
+
+</body>
+</html>

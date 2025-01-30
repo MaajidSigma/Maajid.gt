@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kategori Usia</title>
+</head>
+<body>
+
+    <h2>Masukkan Usia Anda</h2>
+    <input type="number" id="usia" placeholder="Masukkan usia Anda">
+    <button onclick="tentukanKategoriUsia()">Tentukan Kategori Usia</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function tentukanKategoriUsia() {
+            // Mengambil nilai usia dari input
+            let usia = parseInt(document.getElementById("usia").value);
+
+            // Validasi input jika kosong atau bukan angka
+            if (isNaN(usia) || usia < 0) {
+                document.getElementById("hasil").innerText = "Silakan masukkan usia yang valid!";
+                return;
+            }
+
+            let kategori;
+
+            // Menentukan kategori berdasarkan usia
+            if (usia >= 0 && usia <= 12) {
+                kategori = "Anak-anak";
+            } else if (usia >= 13 && usia <= 17) {
+                kategori = "Remaja";
+            } else if (usia >= 18 && usia <= 59) {
+                kategori = "Dewasa";
+            } else if (usia >= 60) {
+                kategori = "Lansia";
+            }
+
+            // Menampilkan hasil kategori
+            document.getElementById("hasil").innerText = "Kategori usia Anda adalah: " + kategori;
+        }
+    </script>
+
+</body>
+</html>

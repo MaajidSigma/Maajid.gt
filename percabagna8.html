@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Diskon</title>
+</head>
+<body>
+
+    <h2>Perhitungan Diskon Berdasarkan Total Belanja</h2>
+    <p>Masukkan total belanja Anda:</p>
+    <input type="number" id="totalBelanja" placeholder="Total Belanja (Rp)">
+    <button onclick="hitungDiskon()">Hitung Diskon</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function hitungDiskon() {
+            // Mengambil total belanja dari input
+            let totalBelanja = parseFloat(document.getElementById("totalBelanja").value);
+
+            // Validasi input jika kosong atau bukan angka
+            if (isNaN(totalBelanja) || totalBelanja <= 0) {
+                document.getElementById("hasil").innerText = "Silakan masukkan total belanja yang valid!";
+                return;
+            }
+
+            let diskon = 0;
+            let totalBayar = totalBelanja;
+
+            // Menentukan diskon berdasarkan total belanja
+            if (totalBelanja > 1500000) {
+                diskon = 0.15; // Diskon 15%
+            } else if (totalBelanja > 500000) {
+                diskon = 0.10; // Diskon 10%
+            }
+
+            // Menghitung total setelah diskon
+            let jumlahDiskon = totalBelanja * diskon;
+            totalBayar -= jumlahDiskon;
+
+            // Menampilkan hasil
+            if (diskon > 0) {
+                document.getElementById("hasil").innerText = "Diskon: Rp. " + jumlahDiskon.toLocaleString() + 
+                    "\nTotal yang harus dibayar: Rp. " + totalBayar.toLocaleString();
+            } else {
+                document.getElementById("hasil").innerText = "Tidak ada diskon. Total yang harus dibayar: Rp. " + totalBayar.toLocaleString();
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menentukan Angka Positif, Negatif, atau Nol</title>
+</head>
+<body>
+
+    <h2>Masukkan Angka untuk Menentukan Positif, Negatif, atau Nol</h2>
+    <input type="number" id="angka" placeholder="Masukkan angka">
+    <button onclick="cekAngka()">Cek Angka</button>
+
+    <script>
+        function cekAngka() {
+            // Mengambil angka dari input
+            let angka = parseFloat(document.getElementById("angka").value);
+
+            // Validasi input
+            if (isNaN(angka)) {
+                console.log("Silakan masukkan angka yang valid.");
+                return;
+            }
+
+            // Menentukan apakah angka positif, negatif, atau nol
+            if (angka > 0) {
+                console.log(angka + " adalah angka positif.");
+            } else if (angka < 0) {
+                console.log(angka + " adalah angka negatif.");
+            } else {
+                console.log(angka + " adalah nol.");
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Kategori Nilai Pemrograman Dasar</title>
+</head>
+<body>
+
+    <h2>Masukkan Nilai Pemrograman Dasar</h2>
+    <input type="number" id="nilai" placeholder="Masukkan nilai (0-100)">
+    <button onclick="tentukanKategori()">Tentukan Kategori</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function tentukanKategori() {
+            // Mengambil nilai dari input
+            let nilai = parseInt(document.getElementById("nilai").value);
+
+            // Cek jika nilai kosong atau bukan angka
+            if (isNaN(nilai)) {
+                document.getElementById("hasil").innerText = "Silakan masukkan angka yang valid!";
+                return;
+            }
+
+            let kategori;
+
+            // Menentukan kategori berdasarkan rentang nilai
+            if (nilai >= 85 && nilai <= 100) {
+                kategori = 'A';
+            } else if (nilai >= 70 && nilai <= 84) {
+                kategori = 'B';
+            } else if (nilai >= 50 && nilai <= 69) {
+                kategori = 'C';
+            } else if (nilai >= 30 && nilai <= 49) {
+                kategori = 'D';
+            } else if (nilai >= 0 && nilai <= 29) {
+                kategori = 'E';
+            } else {
+                kategori = 'Nilai tidak valid';
+            }
+
+            // Menampilkan hasil kategori
+            document.getElementById("hasil").innerText = "Kategori nilai Anda adalah: " + kategori;
+        }
+    </script>
+
+</body>
+</html>

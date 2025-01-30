@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Tahun Kabisat</title>
+</head>
+<body>
+
+    <h2>Masukkan Tahun untuk Menentukan Tahun Kabisat</h2>
+    <input type="number" id="tahun" placeholder="Masukkan tahun (misal: 2024)">
+    <button onclick="tentukanTahunKabisat()">Tentukan Tahun Kabisat</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function tentukanTahunKabisat() {
+            // Mengambil tahun dari input
+            let tahun = parseInt(document.getElementById("tahun").value);
+
+            // Validasi input jika kosong atau bukan angka
+            if (isNaN(tahun) || tahun <= 0) {
+                document.getElementById("hasil").innerText = "Silakan masukkan tahun yang valid!";
+                return;
+            }
+
+            // Menentukan apakah tahun kabisat atau bukan
+            let hasil = "";
+            if ((tahun % 4 === 0 && tahun % 100 !== 0) || (tahun % 400 === 0)) {
+                hasil = tahun + " adalah tahun kabisat.";
+            } else {
+                hasil = tahun + " adalah tahun biasa.";
+            }
+
+            // Menampilkan hasil
+            document.getElementById("hasil").innerText = hasil;
+        }
+    </script>
+
+</body>
+</html>

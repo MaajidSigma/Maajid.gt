@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Gaji Karyawan</title>
+</head>
+<body>
+
+    <h2>Perhitungan Gaji Sarip</h2>
+    <p>Masukkan jumlah jam kerja Sarip dalam seminggu:</p>
+    <input type="number" id="jamKerja" placeholder="Masukkan jam kerja (per minggu)">
+    <button onclick="hitungGaji()">Hitung Gaji Sarip</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function hitungGaji() {
+            // Gaji pokok Sarip
+            const gajiPokok = 7000000;
+            // Gaji lembur per jam
+            const gajiLemburPerJam = 100000;
+
+            // Mengambil input jam kerja
+            let jamKerja = parseInt(document.getElementById("jamKerja").value);
+
+            // Validasi input jika kosong atau bukan angka
+            if (isNaN(jamKerja) || jamKerja < 0) {
+                document.getElementById("hasil").innerText = "Silakan masukkan jumlah jam kerja yang valid!";
+                return;
+            }
+
+            let totalGaji = gajiPokok;
+
+            // Menambahkan gaji lembur jika jam kerja lebih dari 40 jam
+            if (jamKerja > 40) {
+                let jamLembur = jamKerja - 40;
+                totalGaji += jamLembur * gajiLemburPerJam;
+            }
+
+            // Menampilkan hasil
+            document.getElementById("hasil").innerText = "Total Gaji Sarip: Rp. " + totalGaji.toLocaleString();
+        }
+    </script>
+
+</body>
+</html>

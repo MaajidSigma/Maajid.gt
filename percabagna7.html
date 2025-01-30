@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operasi Matematika</title>
+</head>
+<body>
+
+    <h2>Masukkan Dua Angka dan Pilih Operasi Matematika</h2>
+    <input type="number" id="angka1" placeholder="Angka pertama">
+    <input type="number" id="angka2" placeholder="Angka kedua">
+    
+    <select id="operasi">
+        <option value="tambah">Tambah (+)</option>
+        <option value="kurang">Kurang (-)</option>
+        <option value="kali">Kali (×)</option>
+        <option value="bagi">Bagi (÷)</option>
+    </select>
+
+    <button onclick="hitungOperasi()">Hitung</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function hitungOperasi() {
+            // Mengambil input angka dan operasi yang dipilih
+            let angka1 = parseFloat(document.getElementById("angka1").value);
+            let angka2 = parseFloat(document.getElementById("angka2").value);
+            let operasi = document.getElementById("operasi").value;
+
+            // Validasi input
+            if (isNaN(angka1) || isNaN(angka2)) {
+                document.getElementById("hasil").innerText = "Silakan masukkan dua angka yang valid!";
+                return;
+            }
+
+            let hasil;
+
+            // Menentukan hasil berdasarkan operasi yang dipilih
+            if (operasi === "tambah") {
+                hasil = angka1 + angka2;
+            } else if (operasi === "kurang") {
+                hasil = angka1 - angka2;
+            } else if (operasi === "kali") {
+                hasil = angka1 * angka2;
+            } else if (operasi === "bagi") {
+                // Menangani pembagian dengan nol
+                if (angka2 === 0) {
+                    hasil = "Tidak dapat membagi dengan nol!";
+                } else {
+                    hasil = angka1 / angka2;
+                }
+            }
+
+            // Menampilkan hasil
+            document.getElementById("hasil").innerText = "Hasil: " + hasil;
+        }
+    </script>
+
+</body>
+</html>

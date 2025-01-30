@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Ujian Pemrograman</title>
+</head>
+<body>
+
+    <h2>Masukkan Nilai Ujian Pemrograman JavaScript</h2>
+    <input type="number" id="nilai" placeholder="Masukkan nilai ujian (0-100)">
+    <button onclick="cekLulus()">Cek Kelulusan</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        function cekLulus() {
+            // Mengambil nilai ujian dari input
+            let nilai = parseInt(document.getElementById("nilai").value);
+
+            // Validasi input jika kosong atau bukan angka
+            if (isNaN(nilai) || nilai < 0 || nilai > 100) {
+                document.getElementById("hasil").innerText = "Silakan masukkan nilai yang valid (0-100).";
+                return;
+            }
+
+            // Menentukan kelulusan berdasarkan nilai
+            if (nilai > 75) {
+                document.getElementById("hasil").innerText = "Selamat Anda Lulus!";
+            } else {
+                document.getElementById("hasil").innerText = "Mohon Maaf Tidak Lulus, Jangan Menyerah!";
+            }
+        }
+    </script>
+
+</body>
+</html>
