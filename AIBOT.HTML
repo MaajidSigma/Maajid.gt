@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makanan Kuliner indonesia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url("RESTAURANT-LICENSES-IN-INDONESIA_CEKINDO1.webp") no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .chat-container {
+            width: 400px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: #ff9100;
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            background: #b15e00;
+        }
+
+        .message {
+            margin: 10px 0;
+        }
+
+        .user-message {
+            text-align: right;
+            color: #ffffff;
+        }
+
+        .bot-message {
+            text-align: left;
+            color: #333;
+        }
+
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+
+        .chat-input button {
+            background: #ff9100;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .chat-input button:hover {
+            background: #005bb5;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="artificial-intelligence-ai-processor-chip-icon-symbol-for-graphic-design-logo-web-site-social-media-png.webp"
+        style="width: 225px; height: 225px; position: absolute; top: 100px; left: 850px;">
+
+    <div class="chat-container">
+        <div class="chat-header">AIBOT Kuliner Indonesia</div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Ketik pesan Anda di sini..." onkeypress="if(event.key === 'Enter') sendMessage()">
+            <button onclick="sendMessage()">Kirim</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const chatMessages = document.getElementById('chatMessages');
+            const userMessage = userInput.value.trim();
+
+            if (userMessage === '') return;
+
+            const userMessageElement = document.createElement('div');
+            userMessageElement.className = 'message user-message';
+            userMessageElement.textContent = userMessage;
+            chatMessages.appendChild(userMessageElement);
+
+            const botMessageElement = document.createElement('div');
+            botMessageElement.className = 'message bot-message';
+            botMessageElement.textContent = getBotResponse(userMessage);
+            chatMessages.appendChild(botMessageElement);
+
+            userInput.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function getBotResponse(message) {
+            if (message.toLowerCase().includes('halo')) {
+                return 'Halo Tuan! Apa yang bisa saya layani?';
+            } else if (message.toLowerCase().includes('terima kasih banyak!')) {
+                return 'Sama-sama! Senang bisa membantu.';
+            } else if (message.toLowerCase().includes('bye')) {
+                return 'Sampai jumpa! Semoga hari Anda menyenangkan.';
+            } else if (message.toLowerCase().includes('berapa harga sate?')) {
+                return 'Harga satenya Rp 20.000 per porsi. Apakah Anda ingin memesannya?';
+            } else if (message.toLowerCase().includes('saya mau pesan sate')) {
+                return 'pesanan anda sudah kami terima, silahkan tunggu 30 menit untuk pesanan anda.';
+            } else if (message.toLowerCase().includes('terima kasih untuk satenya!')) {
+                    return 'Sama-sama! Selamat menikmati sate Anda!';
+                } else if (message.toLowerCase().includes('saya mau pesan nasi goreng')) {
+                    return 'Pesanan nasi goreng Anda sudah kami terima, silahkan tunggu 30 menit untuk pesanan anda.';
+            } else if (message.toLowerCase().includes('saya mau pesan rendang')) {
+                return 'Pesanan rendang Anda sudah kami terima, silahkan tunggu 30 menit untuk pesanan anda.';
+            } else if (message.toLowerCase().includes('saya mau pesan minuman')) {
+                return 'Kami memiliki berbagai minuman segar. Apa yang ingin Anda pesan?';
+            } else if (message.toLowerCase().includes('saya mau pesan es teh hangat')) {
+                return 'Pesanan es teh hangat Anda sudah kami terima, silahkan tunggu 10 menit untuk pesanan anda.';
+            } else if (message.toLowerCase().includes('saya mau pesan es jeruk')) {
+                return 'Pesanan es jeruk Anda sudah kami terima, silahkan tunggu 10 menit untuk pesanan anda.';
+            } else if (message.toLowerCase().includes('saya mau pesan es kelapa muda')) {
+                return 'Pesanan es kelapa muda Anda sudah kami terima, silahkan tunggu 10 menit untuk pesanan anda.';
+            } else if (message.toLowerCase().includes('saya mau pesan dessert')) {
+                return 'Kami memiliki berbagai pilihan dessert. Apa yang ingin Anda pesan?';
+            } else if (message.toLowerCase().includes('saya mau pesan kue')) {
+                return 'Pesanan kue Anda sudah kami terima, silahkan tunggu 5 menit untuk pesanan anda.';
+            } else if (message.toLowerCase().includes('saya mau pesan buah')) {
+                return 'Pesanan buah Anda sudah kami terima, silahkan tunggu 5 menit untuk pesanan anda.';
+            } else if (message.toLowerCase().includes('saya mau pesan makanan')) {
+                return 'Kami memiliki berbagai pilihan makanan. Apa yang ingin Anda pesan?';
+            } else if (message.toLowerCase().includes('kapan pesanan saya datang?')) {
+                return 'Pesanan Anda akan tiba dalam waktu 30 menit.';
+            } else if (message.toLowerCase().includes('apakah ada diskon?')) {
+                return 'Saat ini kami tidak memiliki diskon, tetapi kami sering mengadakan promo. Silakan cek lagi nanti!';
+            } else if (message.toLowerCase().includes('apakah ada menu vegetarian?')) {
+                return 'Ya, kami memiliki beberapa pilihan menu vegetarian. Silakan tanyakan lebih lanjut!';
+            } else if (message.toLowerCase().includes('apakah ada menu halal?')) {
+                return 'Ya, semua menu kami adalah halal. Anda bisa memesan dengan tenang.';
+            } else if (message.toLowerCase().includes('bayarnya boleh dengan cash?')) {
+                return 'Tentu! Anda bisa membayar dengan cash saat menerima pesanan.';
+            } else if (message.toLowerCase().includes('bayarnya boleh dengan transfer?')) {
+                return 'Tentu! Anda bisa membayar dengan transfer ke rekening kami. Silakan minta detailnya.';
+            } else if (message.toLowerCase().includes('saya mau bayar dengan transfer')) {
+                return 'Silakan transfer ke rekening BCA 166155177199 atas nama ChatAI. Setelah transfer, beri tahu kami.';
+            } else if (message.toLowerCase().includes('saya sudah transfer')) {
+                return 'Terima kasih! Pesanan Anda akan segera diproses.';
+            } else if (message.toLowerCase().includes('kamu tahu bazma?')) {
+                return 'Bazma adalah sekolah yg dikelola oleh pertamina langsung dan dibiyayai secara gratis untuk siswa-siswanya oleh pertamina. Sekolah ini memiliki kurikulum yang sangat baik dan fasilitas yang lengkap dan termasuk sekolah boarding school terbaik di bogor.';
+            } else {
+                return 'Maaf, saya tidak mengerti. Bisa Anda ulangi?';
+            }
+        }
+    </script>
+</body>
+
+</html>
