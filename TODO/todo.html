@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimalist To Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h2>📝 Get it Done!</h2>
+      <button id="toggleTheme">🌙</button>
+    </div>
+
+    <ul class="todo-list">
+      <li>
+        <input type="checkbox" id="task1">
+        <label for="Day1">Benerin bug di game</label>
+      </li>
+      <li>
+        <input type="checkbox" id="task2">
+        <label for="Day2">Bikin map lebih estetik</label>
+      </li>
+      <li>
+        <input type="checkbox" id="task3">
+        <label for="Day3">Design map pegunungan</label>
+      </li>
+      <li>
+        <input type="checkbox" id="task4">
+        <label for="Day4">Nambahin design pemandangan</label>
+      </li>
+      <li>
+        <input type="checkbox" id="task5">
+        <label for="Day5">Tambahin pepohonan dan lain-lain</label>
+      </li>
+      <li>
+        <input type="checkbox" id="task6">
+        <label for="Day6">Buat script npc</label>
+      </li>
+      <li>
+        <input type="checkbox" id="task7">
+        <label for="Day7">Buat rintangan gunung</label>
+      </li>
+      <li>
+        <input type="checkbox" id="task8">
+        <label for="Day8">Buat Teks bicara npc & player</label>
+      </li>
+      <li>
+        <input type="checkbox" id="task9">
+        <label for="Day9">Buat design buat npc-npc</label>
+      </li>
+      <li>
+        <input type="checkbox" id="task10">
+        <label for="Day10">Tambahin item, makanan pake script</label>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById("toggleTheme");
+    const body = document.body;
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      if (body.classList.contains("dark")) {
+        toggleBtn.textContent = "☀️";
+      } else {
+        toggleBtn.textContent = "🌙";
+      }
+    });
+  </script>
+</body>
+</html>
