@@ -1,0 +1,218 @@
+/* ...existing code... */
+:root {
+  --accent: #0ea5a4;
+  /* teal accent */
+  --bg: #0f1724;
+  /* page background (dark) */
+  --card: #0b1220;
+  /* container background */
+  --gold: #d4af37;
+  /* secondary accent for small highlights */
+  --text: #e6eef6;
+  /* main text on dark bg */
+  --muted: #94a3b8;
+  /* muted text */
+  --shadow: rgba(0, 0, 0, 0.6);
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  max-width: 1100px;
+  width: 100%;
+  background-color: var(--card);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px var(--shadow);
+  overflow: hidden;
+}
+
+.sidebar {
+  background: linear-gradient(180deg, rgba(14, 165, 164, 0.12), rgba(11, 18, 32, 0.6));
+  padding: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  margin-bottom: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+.profile-rotator {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+  border: 3px solid var(--accent);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+.profile-rotator img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+
+.profile-rotator img.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.sidebar h1 {
+  font-size: 20px;
+  margin: 0;
+  color: var(--text);
+}
+
+.sidebar .title {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.socials a {
+  color: var(--accent);
+  font-size: 20px;
+  margin: 0 8px;
+  text-decoration: none;
+}
+
+.socials a:hover {
+  color: var(--gold);
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+  color: #071018;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 25px;
+  box-shadow: 0 6px 18px rgba(14, 165, 164, 0.12);
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(14, 165, 164, 0.12);
+}
+
+.content {
+  padding: 40px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  color: var(--gold);
+  border-bottom: 2px solid rgba(14, 165, 164, 0.12);
+  padding-bottom: 5px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: linear-gradient(180deg, rgba(14, 165, 164, 0.04), rgba(255, 255, 255, 0.02));
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.project-card h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills-list span {
+  background: rgba(14, 165, 164, 0.12);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+  border: 1px solid rgba(14, 165, 164, 0.08);
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+input,
+textarea {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 10px;
+  font-family: inherit;
+  color: var(--text);
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+}
+
+textarea {
+  min-height: 100px;
+}
+
+button.btn {
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 850px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  }
+}
+
+/* ...existing code... */
